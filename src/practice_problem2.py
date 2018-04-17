@@ -116,7 +116,7 @@ def practice_problem2a(sequence, delta):
         new_sequence = new_sequence + [sequence[k] + delta]
     return new_sequence
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
@@ -209,8 +209,17 @@ def practice_problem2b(sequence):
     Type hints:
       :type sequence [str]
     """
+    sequence2 = ''
+    for k in range(len(sequence)):
+        string = sequence[k]
+        if string == '':
+            pass
+        else:
+            sequence2 = sequence2 + string[0]
+    return sequence2
+
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
