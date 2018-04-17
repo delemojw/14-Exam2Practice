@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 2.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Jabari-Aman Delemore.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -41,8 +41,44 @@ def main():
 
 def run_test_practice_problem2a():
     """ Tests the   practice_problem2a  function. """
+    # Test 1
+    sequence = [9, 10, 11, 12, 13]
+    delta = 5
+    expected = [14, 15, 16, 17, 18]
+    actual = practice_problem2a(sequence, delta)
+    print('Test 1 expected:     ', expected)
+    print('     Actual:', actual)
+    print('----------------------')
+
+    # Test 2
+    sequence = [9, 0, 1, 50, -40]
+    delta = 10
+    expected = [19, 10, 11, 60, -30]
+    actual = practice_problem2a(sequence, delta)
+    print('Test 2 expected:     ', expected)
+    print('     Actual:', actual)
+    print('----------------------')
+
+    # Test 3
+    sequence = [9, 10, 11, 12, 13]
+    delta = -5
+    expected = [4, 5, 6, 7, 8]
+    actual = practice_problem2a(sequence, delta)
+    print('Test 3 expected:     ', expected)
+    print('     Actual:', actual)
+    print('----------------------')
+
+    # Test 4
+    sequence = [9, 0, 1, 50, -40]
+    delta = -10
+    expected = [-1, -10, -9, 40, -50]
+    actual = practice_problem2a(sequence, delta)
+    print('Test 4 expected:     ', expected)
+    print('     Actual:', actual)
+    print('----------------------')
+
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem2a  function defined below.
     #   Include at least **   4 reasonable   ** tests.
     #
@@ -75,6 +111,10 @@ def practice_problem2a(sequence, delta):
       :type sequence: [int]
       :type delta:    int
     """
+    new_sequence = []
+    for k in range(len(sequence)):
+        new_sequence = new_sequence + [sequence[k] + delta]
+    return new_sequence
     ####################################################################
     # TODO: 3. Implement and test this function.
     #     The testing code is already written for you (above).
