@@ -44,10 +44,10 @@ def main():
     run_test_double()
 #     run_test_shrink()
 #     run_test_double_then_shrink()
-#     run_test_reset()
-#     run_test_steal()
-#     run_test_get_history()
-#     run_test_combined_box()
+    run_test_reset()
+    run_test_steal()
+    run_test_get_history()
+    run_test_combined_box()
 
 
 ########################################################################
@@ -97,6 +97,9 @@ class Box(object):
         self.volume = volume
         if len(self.contents) > self.volume:
             self.contents = ''
+        self.x = self.volume
+        self.y = self.contents
+        self.sequence = []
         # --------------------------------------------------------------
         # Done: 2. Implement and test this function.
         #     See the testing code (below) for more examples.
@@ -288,8 +291,9 @@ class Box(object):
         Type hints:
           :type new_volume: int
         """
-        self.volume = new_volume
-        
+        # self.volume = new_volume
+        # space = self.volume + len(self.contents)
+
         # --------------------------------------------------------------
         # TODO: 5. Implement and test this function.
         #     The testing code is already written for you (above).
@@ -346,6 +350,7 @@ class Box(object):
         Type hints:
           :type new_volume: int
         """
+
         # --------------------------------------------------------------
         # TODO: 6. Implement and test this function.
         #     The testing code is already written for you (above).
@@ -365,8 +370,12 @@ class Box(object):
           Changes this Box's contents and volume to whatever they were
           when this Box was constructed.
         """
+        self.sequence = self.sequence + [self.contents]
+        self.contents = self.y
+        self.volume = self.x
+
         # --------------------------------------------------------------
-        # TODO: 7. Implement and test this function.
+        # DONE: 7. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -393,8 +402,10 @@ class Box(object):
         Type hints:
           :type other_box: Box
         """
+        s = self.append_string(other_box.contents)
+        other_box.contents = s
         # --------------------------------------------------------------
-        # TODO: 8. Implement and test this function.
+        # DONE: 8. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -436,8 +447,11 @@ class Box(object):
           h = b.get_history()
           #   h is now ['GoodGo', 'GoodBye']
         """
+        return self.sequence
+
+
         # --------------------------------------------------------------
-        # TODO: 9. Implement and test this function.
+        # DONE: 9. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -462,8 +476,11 @@ class Box(object):
         Type hints:
           :type other_box: Box
         """
+        box = Box(self.contents + other_box.contents, self.volume + other_box.volume)
+        return box
+
         # --------------------------------------------------------------
-        # TODO: 10. Implement and test this function.
+        # Done: 10. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
