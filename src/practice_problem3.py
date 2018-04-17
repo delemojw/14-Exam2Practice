@@ -550,7 +550,7 @@ def practice_problem3e(sequence):
     x = 0
     for k in range(0, len(sequence), 2):
         x = x + sequence[k]
-    return x
+    return x 
     # ------------------------------------------------------------------
     # DONE: 7. Implement and test this function.
     #     The testing code is already written for you (above).
